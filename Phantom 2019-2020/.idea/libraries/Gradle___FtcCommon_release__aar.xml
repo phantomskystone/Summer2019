@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: :FtcCommon-release:@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/41bafb808238336a0ca5a418de36d600/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/41bafb808238336a0ca5a418de36d600/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bf4268385f8ff06f0ca2511146f585f1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bf4268385f8ff06f0ca2511146f585f1/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
