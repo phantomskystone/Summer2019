@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;;
 
 @Autonomous(name = "Wesley Mecanum Angle Auton", group = "Autonomous")
 
@@ -17,11 +17,11 @@ public class Drift extends LinearOpMode {
     @Override
     public void runOpMode() {
         robot.init(hardwareMap);
-        strafeAtAngle(35, 1, 2000);
+        welcomeToTokeyo(35, 1, 2000);
     }
-    void strafeAtAngle(int angle, double power, int time) {
-        double xAxis = Math.cos(angle);
-        double yAxis = Math.sin(angle);
+    void welcomeToTokeyo(int enterValueHere, double power, int time) {
+        double xAxis = Math.cos(enterValueHere);
+        double yAxis = Math.sin(enterValueHere);
 
         robot.frontLeft.setPower(power*(-yAxis - xAxis));
         robot.backLeft.setPower(power*(-yAxis + xAxis));
@@ -35,4 +35,11 @@ public class Drift extends LinearOpMode {
         robot.frontRight.setPower(0);
         robot.backRight.setPower(0);
     }
+    void drift(int factor, double maxAllowedPower) {
+
+
+
+    }
+
 }
+

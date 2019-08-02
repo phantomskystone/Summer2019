@@ -4,6 +4,8 @@ import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+
+import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
@@ -24,7 +26,9 @@ public class MecanumConfig {
 
     public Orientation             lastAngles = new Orientation();
 
-    public double                  globalAngle, power = .30, correction;
+
+    public double                  globalAngle;
+
 
     public MecanumConfig() {}
 
@@ -35,6 +39,7 @@ public class MecanumConfig {
         parameters.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
         parameters.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
         parameters.loggingEnabled      = false;
+
 
         frontLeft = hwMap.get(DcMotor.class, "front_left_motor");
         backLeft = hwMap.get(DcMotor.class, "back_left_motor");

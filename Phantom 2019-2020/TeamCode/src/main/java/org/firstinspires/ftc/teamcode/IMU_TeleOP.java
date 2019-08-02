@@ -16,7 +16,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 
 import java.util.Locale;
 
-@TeleOp(name = "Sensor: BNO055 IMU", group = "Sensor")
+@TeleOp(name = "Drive Avoid Program", group = "Sensor")
 
 public class IMU_TeleOP extends LinearOpMode {
 
