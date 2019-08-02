@@ -24,6 +24,8 @@ public class Mecanum2 extends LinearOpMode {
     boolean pressed = false;
 
     double power = 0.5;
+    boolean inverted;
+    boolean released = true;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -69,6 +71,7 @@ public class Mecanum2 extends LinearOpMode {
             backRight = -gamepad1.left_stick_y - side;
             frontLeft = -gamepad1.right_stick_y - side;
             backLeft = -gamepad1.right_stick_y + side;
+
             if (gamepad1.dpad_left) {
 
                 frontLeft = -1 - gamepad1.right_trigger;
@@ -83,11 +86,34 @@ public class Mecanum2 extends LinearOpMode {
                 backLeft = -1 - gamepad1.right_trigger;
                 backRight = 1 * (1 - gamepad1.right_trigger);
             }
+            if (gamepad1.y) {
+                if (released) {
+                    if (inverted) {
+                        inverted = false;
+                    } else {
+                        inverted = true;
+                    }
+                    released = false;
+                }
+            }
+            if (!released) {
+                if (!gamepad1.y) {
+                    released = true;
+                }
+            }
             if (!gamepad1.x) {
-                robot.frontLeft.setPower(-frontLeft * power);
-                robot.backLeft.setPower(-backLeft * power);
-                robot.frontRight.setPower(-frontRight * power);
-                robot.backRight.setPower(-backRight * power);
+                if (inverted) {
+                    robot.frontRight.setPower(frontLeft * power);
+                    robot.backRight.setPower(backLeft * power);
+                    robot.frontLeft.setPower(frontRight * power);
+                    robot.backLeft.setPower(backRight * power);
+                }
+                else {
+                    robot.frontLeft.setPower(-frontLeft * power);
+                    robot.backLeft.setPower(-backLeft * power);
+                    robot.frontRight.setPower(-frontRight * power);
+                    robot.backRight.setPower(-backRight * power);
+                }
             } else {
                 rotate(170,1);
             }
@@ -177,5 +203,3 @@ public class Mecanum2 extends LinearOpMode {
     }
 
 }
-
-
