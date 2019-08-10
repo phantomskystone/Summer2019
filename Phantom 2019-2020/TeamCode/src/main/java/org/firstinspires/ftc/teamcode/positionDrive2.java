@@ -26,7 +26,11 @@ public class positionDrive2 extends LinearOpMode {
     double distanceY;
     double distanceZ;
 
+<<<<<<< Updated upstream
 
+=======
+    //IMU_Distance meter = new IMU_Distance(0);
+>>>>>>> Stashed changes
 
     MecanumConfig robot = new MecanumConfig();
 

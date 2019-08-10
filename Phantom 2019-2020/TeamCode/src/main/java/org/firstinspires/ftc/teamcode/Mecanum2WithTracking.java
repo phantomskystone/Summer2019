@@ -1,12 +1,16 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+
+import java.util.Locale;
 
 @TeleOp(name = "MecanumWithTracking")
 public class Mecanum2WithTracking extends LinearOpMode {
@@ -91,10 +95,11 @@ public class Mecanum2WithTracking extends LinearOpMode {
             } else {
                 rotate(170,1);
             }
-            double[] returned = tracking.Track(tracking.getNanoDiffs(nanos));//get the end time and diff it with the start time, then get the relative position.
-           telemetry.addData("XRelative: ",returned[0]);
-           telemetry.addData("YRelative: ",returned[1]);
-           telemetry.addData("ZRelative: ",returned[2]);
+           // double[] returned = tracking.Track(tracking.getNanoDiffs(nanos));//get the end time and diff it with the start time, then get the relative position.
+           //telemetry.addData("XRelative: ",returned[0]);
+           //telemetry.addData("YRelative: ",returned[1]);
+           //telemetry.addData("ZRelative: ",returned[2]);
+            telemetry.addData("Test: ",tracking.Track(tracking.getNanoDiffs(nanos)));
             telemetry.update();
         }
     }
@@ -182,5 +187,3 @@ public class Mecanum2WithTracking extends LinearOpMode {
     }
 
 }
-
-

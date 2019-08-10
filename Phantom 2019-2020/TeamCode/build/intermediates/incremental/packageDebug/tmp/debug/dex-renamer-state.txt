@@ -1,0 +1,4 @@
+#Fri Aug 02 15:03:05 CDT 2019
+base.0=C\:\\Users\\Ian\\Documents\\GitHub\\Summer2019\\Phantom 2019-2020\\TeamCode\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
+path.0=classes.dex
+renamed.0=classes.dex
