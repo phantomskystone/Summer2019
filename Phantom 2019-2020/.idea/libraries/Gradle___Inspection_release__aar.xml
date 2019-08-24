@@ -1,8 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: :Inspection-release:@aar">
     <CLASSES>
+<<<<<<< Updated upstream
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2e0082b64a9f54b6d9fd2e826fd6fd6d/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2e0082b64a9f54b6d9fd2e826fd6fd6d/jars/classes.jar!/" />
+=======
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0e7da36bd6ed3a8ac2b2525f405c7b1a/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0e7da36bd6ed3a8ac2b2525f405c7b1a/res" />
+>>>>>>> Stashed changes
     </CLASSES>
     <JAVADOC />
     <SOURCES>

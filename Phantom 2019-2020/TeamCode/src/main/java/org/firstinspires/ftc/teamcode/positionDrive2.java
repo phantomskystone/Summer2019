@@ -27,7 +27,11 @@ public class positionDrive2 extends LinearOpMode {
     double distanceZ;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+    //IMU_Distance meter = new IMU_Distance(0);
+>>>>>>> Stashed changes
 =======
     //IMU_Distance meter = new IMU_Distance(0);
 >>>>>>> Stashed changes
