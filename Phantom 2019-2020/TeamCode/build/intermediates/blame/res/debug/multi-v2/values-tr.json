@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Ian\\Documents\\GitHub\\Summer2019\\Phantom 2019-2020\\TeamCode\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-tr\\values-tr.xml",
+            "outputFile": "/Users/ianw/Downloads/SkyStone-5.2/TeamCode/build/intermediates/incremental/mergeDebugResources/merged.dir/values-tr/values-tr.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Ian\\.gradle\\caches\\transforms-2\\files-2.1\\95df537946ec9b2dac0c45fb57415432\\res\\values-tr\\values-tr.xml",
+                    "source": "/Users/ianw/.gradle/caches/transforms-2/files-2.1/3d52933054f76ddec6145a526a3ae4fd/res/values-tr/values-tr.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

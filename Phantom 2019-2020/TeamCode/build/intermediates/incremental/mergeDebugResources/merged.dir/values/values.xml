@@ -245,11 +245,11 @@
     <string name="about_activity">About</string>
     <string name="about_app_version">App Version</string>
     <string name="about_build_time">App Build Time</string>
+    <string name="about_ch_os_version">Control Hub OS Version</string>
     <string name="about_library_version">Library Version</string>
     <string name="about_menu_item">About</string>
     <string name="about_network_connection_info">Network Connection Info</string>
     <string name="about_network_protocol_version">Robot Wifi Protocol Version</string>
-    <string name="about_os_version">Operating System Version</string>
     <string name="about_wifi_connected">Connected</string>
     <string name="about_wifi_direct_info">Wifi Direct Config Information</string>
     <string name="about_wifi_group_owner">Group Owner</string>
@@ -529,6 +529,7 @@
     <string name="lynx_fw_instructions_serial">Serial number: %s</string>
     <string name="lynx_fw_instructions_update">Expansion Hub firmware update file \"%1$s\" was found, as were the following Expansion Hubs:</string>
     <string name="lynx_fw_instructions_update_post">Click on the button below to update the firmware on each of these Expansion Hubs.\n\nWARNING: While the firmware update is in progress, do not unplug hubs or restart the robot, or a hub may become permanently unusable.</string>
+    <string name="manage_page_no_network">Unavailable. Is WiFi on?</string>
     <string name="matrix_controller_name_prompt">Enter the name for this matrix controller here</string>
     <string name="matrix_motor_title">Motors</string>
     <string name="matrix_name_prompt">Matrix name</string>
@@ -756,12 +757,14 @@
     <string name="rev_40_hd_hex_name">REV Robotics 40:1 HD Hex Motor</string>
     <string name="rev_blinkin_description">a REV Blinkin LED Driver</string>
     <string name="rev_blinkin_name">REV Blinkin LED Driver</string>
+    <string name="rev_color_sensor_v3_description">a Rev Color Sensor v3</string>
+    <string name="rev_color_sensor_v3_name">Rev Color Sensor v3</string>
     <string name="rev_core_hex_name">REV Robotics Core Hex Motor</string>
     <string name="rev_distributor">REV Robotics</string>
     <string name="rev_laser_sensor_description">a REV 2M (Time of Flight) Distance Sensor</string>
     <string name="rev_laser_sensor_name">REV 2M Distance Sensor</string>
-    <string name="rev_spark_mini_description">a REV SPARK Mini Motor Controller</string>
-    <string name="rev_spark_mini_name">REV SPARK Mini Controller</string>
+    <string name="rev_spark_mini_description">a REV SPARKmini Motor Controller</string>
+    <string name="rev_spark_mini_name">REV SPARKmini Controller</string>
     <string name="rev_touch_sensor_description">a REV touch sensor</string>
     <string name="robotControllerAppUpdateReadme">When running on a REV Control Hub (and only on a Control Hub, not merely a robot controller phone), any Android applications (APK files) found in this folder will be automatically installed when the system boots. Once successfully installed, each APK is deleted so as to not be reinstalled on subsequent boots.</string>
     <string name="robotStateEmergencyStop">EMERGENCY STOP</string>
@@ -815,7 +818,7 @@
     <string name="string_WifiRememberedGroupsInstructions">The Robot Controller contains the following Wifi Direct remembered groups. Click on the button at the bottom to clear these groups. Clearing groups in this way can at times help alleviate network connectivity issues.</string>
     <string name="summaryAdvancedRCSettings">Change advanced settings of the robot controller</string>
     <string name="summaryLynxAddressUpdate">Change the persistent hub address of one or more Expansion Hubs</string>
-    <string name="summaryLynxFirmwareUpdate">Updates the firmware all currently attached Expansion Hubs</string>
+    <string name="summaryLynxFirmwareUpdate">Updates the firmware of all currently attached Expansion Hubs</string>
     <string name="swapPrompt">Choose the USB controller you want to swap \'%s\' with, or press \'Cancel\'</string>
     <string name="templateConfigurationInstructions">To configure your robot using %1$s, attach the following devices, then press the \'Config\' button:\n%2$s</string>
     <string name="templateConfigureConfigurationInstructionsTitle">Configuration Instructions</string>
@@ -866,6 +869,7 @@
     <string name="toastWifiConfigurationComplete">Configuration Complete</string>
     <string name="toastWifiP2pChannelChangeRequestedDS">Asked Robot Controller to change to channel \'%s\'. A restart of the Driver Station may be needed.</string>
     <string name="toastWifiP2pRememberedGroupsCleared">Wifi Direct remembered groups have been cleared from the robot controller.</string>
+    <string name="toastWifiUpBeforeProgrammingMode">The Robot Controller must be fully up and running before starting Programming Mode.  Is Wifi turned on in settings?</string>
     <string name="tokenThemeBlue">blue</string>
     <string name="tokenThemeGreen">green</string>
     <string name="tokenThemeOrange">orange</string>
