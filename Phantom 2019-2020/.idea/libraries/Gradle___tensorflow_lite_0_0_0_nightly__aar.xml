@@ -1,13 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: :tensorflow-lite-0.0.0-nightly:@aar">
     <CLASSES>
-<<<<<<< Updated upstream
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/894996d3c417c9fb38b6e0132ffe098a/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/894996d3c417c9fb38b6e0132ffe098a/res" />
-=======
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/421bf828088ccea308f3643befbe7068/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/421bf828088ccea308f3643befbe7068/res" />
->>>>>>> Stashed changes
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d1ef22cfb86948e734a8864be7b7baaf/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d1ef22cfb86948e734a8864be7b7baaf/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

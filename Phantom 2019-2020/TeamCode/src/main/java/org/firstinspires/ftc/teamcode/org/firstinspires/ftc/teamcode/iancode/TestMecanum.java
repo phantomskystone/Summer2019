@@ -18,12 +18,12 @@ public class TestMecanum extends LinearOpMode {
         sleep(2500);
         telemetry.addData("Test","1");
         telemetry.update();
-        Redux.driveSwitch(m,0,2,power);
+        Redux.drive(m,0,2,power);
         telemetry.clearAll();
         sleep(2500);
         telemetry.addData("Test","2");
         telemetry.update();
-        Redux.driveSwitch(m,90,2,power);
+        Redux.drive(m,90,2,power);
         telemetry.clearAll();
        // sleep(2500);
        // telemetry.addData("Test","3");
@@ -33,7 +33,7 @@ public class TestMecanum extends LinearOpMode {
         sleep(2500);
         telemetry.addData("Test","3");
         telemetry.update();
-        Redux.driveSwitch(m,(45),2,power);
+        Redux.drive(m,(45),2,power);
         telemetry.clearAll();
         requestOpModeStop();
         stop();

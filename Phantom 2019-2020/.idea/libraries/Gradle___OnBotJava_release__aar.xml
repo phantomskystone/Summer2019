@@ -1,15 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: :OnBotJava-release:@aar">
     <CLASSES>
-<<<<<<< Updated upstream
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c445ff4dba189c53e75fb845a9c48964/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c445ff4dba189c53e75fb845a9c48964/jars/libs/javac.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c445ff4dba189c53e75fb845a9c48964/jars/classes.jar!/" />
-=======
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/88d68a20f7754bd386357127b0017c9b/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/88d68a20f7754bd386357127b0017c9b/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/88d68a20f7754bd386357127b0017c9b/jars/libs/javac.jar!/" />
->>>>>>> Stashed changes
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8fa8533858f7d2dfdc3b57151a7aa48b/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8fa8533858f7d2dfdc3b57151a7aa48b/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8fa8533858f7d2dfdc3b57151a7aa48b/jars/libs/javac.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

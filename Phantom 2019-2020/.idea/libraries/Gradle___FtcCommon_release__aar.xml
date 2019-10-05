@@ -1,13 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: :FtcCommon-release:@aar">
     <CLASSES>
-<<<<<<< Updated upstream
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/abce0c3bcac19d703763bb97f8ea1100/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/abce0c3bcac19d703763bb97f8ea1100/jars/classes.jar!/" />
-=======
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d14fcade177449879a69f54a4fd734f4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d14fcade177449879a69f54a4fd734f4/res" />
->>>>>>> Stashed changes
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d03d0e309bf3cb971b12f97216b061b8/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d03d0e309bf3cb971b12f97216b061b8/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
