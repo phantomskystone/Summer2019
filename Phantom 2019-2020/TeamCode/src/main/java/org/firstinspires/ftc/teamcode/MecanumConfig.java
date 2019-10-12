@@ -23,6 +23,7 @@ public class MecanumConfig {
    public BNO055IMU imu      = null;
     public Servo armServo=null;
     HardwareMap hwMap = null;
+    boolean newC = true;
 
     public BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
 
@@ -57,8 +58,18 @@ public class MecanumConfig {
 
         frontLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
-        backRight.setDirection(DcMotorSimple.Direction.REVERSE);
-        backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+        if (newC){
+            backRight.setDirection(DcMotorSimple.Direction.FORWARD);
+           // backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+          //  backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+           // frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+            backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+            //frontRight.setDirection(DcMotorSimple.Direction.FORWARD);
+        }else{
+            backRight.setDirection(DcMotorSimple.Direction.REVERSE);
+            backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+        }
+
 
         frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);

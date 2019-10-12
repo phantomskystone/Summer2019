@@ -10,9 +10,11 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+import org.firstinspires.ftc.teamcode.iancode.MecanumRedux;
+
 import java.lang.Math;
 
-@Autonomous(name="Mecanum Method Auton + IMU",group="autonomous")
+@Autonomous(name="Mecanum Method Auton Sigh",group="autonomous")
 
 public class MecanumAutonSigh extends LinearOpMode {
 
@@ -29,7 +31,7 @@ public class MecanumAutonSigh extends LinearOpMode {
         robot.init(hardwareMap);
 
         robot.imu.initialize(robot.parameters);
-
+        MecanumRedux m = new MecanumRedux(this);
         //while (gamepad1.right_stick_x + gamepad1.right_stick_y != 1);
 
         telemetry.addData("Mode", "calibrating...");
@@ -60,15 +62,19 @@ public class MecanumAutonSigh extends LinearOpMode {
             sleep(500);
 
              */
-            mecanumTimeDrive(0, 1.1, 0.5);
+          //  mecanumTimeDrive(0, 1.1, 0.5);
+            //m.drive(robot,0,1.1f,0.5f);
+            m.simpleDrive(robot,1.1f,0.34f);
            // mecanumTimeDrive(90, 0.3, 0.5);
-            sleep(500);
+            sleep(5000);
 
-            robot.armServo.setPosition(0.5);
-            sleep(250);
-            mecanumTimeDrive(0, 1.1, -0.5);
+            robot.armServo.setPosition((110/180));
+            sleep(5000);
+           // mecanumTimeDrive(0, 1.1, -0.5);
+            //m.drive(robot,0,1.1f,-0.5f);
+            m.simpleDrive(robot,1.1f,-0.34f);
             robot.armServo.setPosition(0); //TODO
-            //ask Weslesy
+            //ask Wesley
 
      //       break;
       //  }

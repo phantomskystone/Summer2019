@@ -7,20 +7,61 @@ import org.firstinspires.ftc.teamcode.MecanumConfig;
 
 public class MecanumRedux {
     LinearOpMode e;
+    boolean debug=true;
     public MecanumRedux(LinearOpMode thisOpmode){
         e=thisOpmode;
     }
-    public void drive(MecanumConfig m, int angle, int time, float power){
+    public void drive(MecanumConfig m, int angle, float time, float power){
         ElapsedTime runtime = new ElapsedTime();runtime.reset();
         angle=angle+45; // this does the thing. Magic numbers are magic. -Ian
         //this should work, however we need a controller input to test
-        while (runtime.seconds() < time && !e.isStopRequested()){
+        //while (runtime.seconds() < time && !e.isStopRequested()){
             m.frontRight.setPower((Math.sin(Math.toRadians(angle)) * power)); //We need a weight fix, if only we had a center of mass overlay.
             m.frontLeft.setPower((Math.cos(Math.toRadians(angle)) * power));
             m.backRight.setPower((Math.cos(Math.toRadians(angle)) * power));
             m.backLeft.setPower((Math.sin(Math.toRadians(angle)) * power));
 
-        }
+        //}
+        while (runtime.seconds() < time && !e.isStopRequested()){
+            if (debug) {
+
+
+                e.telemetry.addData("Timestamp: ", System.nanoTime());
+                e.telemetry.addData("Front Right: ", Math.sin(Math.toRadians(angle)) * power);
+                e.telemetry.addData("Front Left: ", Math.cos(Math.toRadians(angle)) * power);
+                e.telemetry.addData("Back Right: ", Math.cos(Math.toRadians(angle)) * power);
+                e.telemetry.addData("Back Left: ", Math.sin(Math.toRadians(angle)) * power);
+                e.telemetry.update();
+            }
+        } //TODO
+        m.frontLeft.setPower(0);
+        m.frontRight.setPower(0);
+        m.backLeft.setPower(0);
+        m.backRight.setPower(0);
+    }
+    public void simpleDrive(MecanumConfig m, float time, float power){
+        ElapsedTime runtime = new ElapsedTime();runtime.reset();
+        //angle=angle+45; // this does the thing. Magic numbers are magic. -Ian
+        //this should work, however we need a controller input to test
+        //while (runtime.seconds() < time && !e.isStopRequested()){
+        m.frontRight.setPower(power); //We need a weight fix, if only we had a center of mass overlay.
+        m.frontLeft.setPower(power);
+        m.backRight.setPower(power);
+        m.backLeft.setPower(power);
+
+        //}
+        while (runtime.seconds() < time && !e.isStopRequested()){
+            if (debug) {
+
+
+                e.telemetry.addData("Timestamp: ", System.nanoTime());
+                e.telemetry.addData("Front Right: ",  power);
+                e.telemetry.addData("Front Left: ", power);
+                e.telemetry.addData("Back Right: ", power);
+                e.telemetry.addData("Back Left: ", power);
+                e.telemetry.update();
+            }
+        } //TODO
         m.frontLeft.setPower(0);
         m.frontRight.setPower(0);
         m.backLeft.setPower(0);
