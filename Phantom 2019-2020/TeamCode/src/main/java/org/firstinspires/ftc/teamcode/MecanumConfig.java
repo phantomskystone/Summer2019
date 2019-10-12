@@ -4,6 +4,7 @@ import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
@@ -20,6 +21,7 @@ public class MecanumConfig {
     public DcMotor frontRight = null;
     public DcMotor backRight  = null;
    public BNO055IMU imu      = null;
+    public Servo armServo=null;
     HardwareMap hwMap = null;
 
     public BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
@@ -62,6 +64,9 @@ public class MecanumConfig {
         frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        //backRight = hwMap.get(DcMotor.class, "back_right_motor");
+        armServo= hwMap.get(Servo.class,"armServo");
+        armServo.setDirection(Servo.Direction.REVERSE);
     }
 
 }
