@@ -29,7 +29,7 @@ public class MecanumAutonSigh extends LinearOpMode {
     @Override
     public void runOpMode() {
         robot.init(hardwareMap);
-
+        robot.doIMU();
         robot.imu.initialize(robot.parameters);
         MecanumRedux m = new MecanumRedux(this);
         //while (gamepad1.right_stick_x + gamepad1.right_stick_y != 1);

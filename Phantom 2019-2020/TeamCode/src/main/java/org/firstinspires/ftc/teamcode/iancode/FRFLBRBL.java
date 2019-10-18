@@ -15,25 +15,35 @@ public class FRFLBRBL extends LinearOpMode {
         //m.imu.initialize(m.parameters);
         MecanumRedux mr = new MecanumRedux(this);
         waitForStart();
-        m.frontRight.setPower(0.5);
-        sleep(2500);
-        zeroMotors();
-        sleep(2500);
-        m.frontLeft.setPower(0.5);
-        sleep(2500);
-        zeroMotors();
-        sleep(2500);
-        m.backRight.setPower(0.5);
-        sleep(2500);
-        zeroMotors();
-        sleep(2500);
-        m.backLeft.setPower(0.5);
-        sleep(2500);
-        zeroMotors();
-        sleep(2500);
-        mr.drive(m,0,2.5f,0.5f);
-        sleep(2500);
-        mr.drive(m,0,2.5f,-0.5f);
+        while (!isStopRequested()) {
+
+            telemetry.addData("To start Press: ","A");
+            if (gamepad1.a) {
+
+
+                m.frontRight.setPower(0.5);
+                sleep(2500);
+                zeroMotors();
+                sleep(2500);
+                m.frontLeft.setPower(0.5);
+                sleep(2500);
+                zeroMotors();
+                sleep(2500);
+                m.backRight.setPower(0.5);
+                sleep(2500);
+                zeroMotors();
+                sleep(2500);
+                m.backLeft.setPower(0.5);
+                sleep(2500);
+                zeroMotors();
+                sleep(2500);
+                mr.drive(m, 0, 2.5f, 0.5f);
+                sleep(2500);
+                mr.drive(m, 0, 2.5f, -0.5f);
+                break;
+            }
+            telemetry.update();
+        }
     }
     public void zeroMotors(){
         m.frontRight.setPower(0);

@@ -24,6 +24,7 @@ public class MecanumConfig {
     public Servo armServo=null;
     HardwareMap hwMap = null;
     boolean newC = true;
+    boolean IMU=false;
 
     public BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
 
@@ -38,18 +39,12 @@ public class MecanumConfig {
     public void init(HardwareMap ahwMap) {
         hwMap = ahwMap;
 
-        parameters.mode =  BNO055IMU.SensorMode.IMU;
-        parameters.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
-        parameters.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
-        parameters.loggingEnabled      = false;
 
 
         frontLeft = hwMap.get(DcMotor.class, "front_left_motor");
         backLeft = hwMap.get(DcMotor.class, "back_left_motor");
         frontRight = hwMap.get(DcMotor.class, "front_right_motor");
         backRight = hwMap.get(DcMotor.class, "back_right_motor");
-        imu = hwMap.get(BNO055IMU.class, "imu");
-        imu.initialize(parameters);
 
         frontRight.setPower(0);
         frontLeft.setPower(0);
@@ -78,6 +73,14 @@ public class MecanumConfig {
         //backRight = hwMap.get(DcMotor.class, "back_right_motor");
         armServo= hwMap.get(Servo.class,"armServo");
         armServo.setDirection(Servo.Direction.REVERSE);
+    }
+    public void doIMU(){
+        parameters.mode =  BNO055IMU.SensorMode.IMU;
+        parameters.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
+        parameters.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        parameters.loggingEnabled      = false;
+        imu = hwMap.get(BNO055IMU.class, "imu");
+        imu.initialize(parameters);
     }
 
 }
