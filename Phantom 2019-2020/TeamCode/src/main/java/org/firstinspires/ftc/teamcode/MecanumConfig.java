@@ -93,14 +93,32 @@ public class MecanumConfig {
     public void reverse() {
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         frontRight.setDirection(DcMotorSimple.Direction.FORWARD);
-        backRight.setDirection(DcMotorSimple.Direction.FORWARD);
-        backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+        if (!newC){
+            backRight.setDirection(DcMotorSimple.Direction.FORWARD);
+            // backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+            //  backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+            // frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+            backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+            //frontRight.setDirection(DcMotorSimple.Direction.FORWARD);
+        }else{
+            backRight.setDirection(DcMotorSimple.Direction.REVERSE);
+            backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+        }
     }
     public void forward() {
         frontLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
-        backRight.setDirection(DcMotorSimple.Direction.REVERSE);
-        backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+        if (newC){
+            backRight.setDirection(DcMotorSimple.Direction.FORWARD);
+            // backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+            //  backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+            // frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+            backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+            //frontRight.setDirection(DcMotorSimple.Direction.FORWARD);
+        }else{
+            backRight.setDirection(DcMotorSimple.Direction.REVERSE);
+            backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+        }
     }
     public void backReverse () {
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);

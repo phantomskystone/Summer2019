@@ -4,8 +4,14 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.MecanumConfig;
-
+import org.firstinspires.ftc.teamcode.iancode.proto.auto;
 public class MecanumRedux2 extends MecanumRedux {
+    LinearOpMode e;
+    auto e2;
+    public MecanumRedux2(auto thisOpmode){
+        e=thisOpmode;
+        e2=thisOpmode;
+    }
     public MecanumRedux2(LinearOpMode thisOpmode){
         e=thisOpmode;
     }
@@ -29,5 +35,14 @@ public class MecanumRedux2 extends MecanumRedux {
         e.telemetry.update();
         e.requestOpModeStop();
         e.stop();
+    }
+    public int sideify(int angle){
+        if (e2!=null){
+            if (e2.SideA.toLowerCase()=="blue"){
+                return -angle;
+            }
+        }
+
+        return angle;
     }
 }

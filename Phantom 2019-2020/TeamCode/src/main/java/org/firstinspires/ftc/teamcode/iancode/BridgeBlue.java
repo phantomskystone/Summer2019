@@ -2,29 +2,32 @@ package org.firstinspires.ftc.teamcode.iancode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import org.firstinspires.ftc.teamcode.iancode.proto.auto;
 
 import org.firstinspires.ftc.teamcode.MecanumConfig;
-
 @Autonomous(name="Bridge (BLUE)",group="autonomous")
-public class BridgeBlue extends LinearOpMode {
+public class BridgeBlue extends auto {
     MecanumConfig robot = new MecanumConfig();
     @Override
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
-
+        robot.reverse();
         //robot.imu.initialize(robot.parameters);
         MecanumRedux MecanumInstance = new MecanumRedux(this);
         waitForStart();
-        MecanumInstance.drive(robot,0,1.1f,0.5f);
-        robot.armServo.setPosition((110/180));
-        sleep(500);
-        MecanumInstance.drive(robot,0,1.5f,-0.5f);
-        sleep(500);
-        robot.armServo.setPosition(0);
-        sleep(500);
-        MecanumInstance.drive(robot,90,1.1f,0.5f);
-        MecanumInstance.drive(robot,0,0.6f,0.5f);
-        MecanumInstance.drive(robot,90,1f,0.5f);
-        
+        MecanumInstance.drive(robot,-90,1.2f,0.5f);
+        MecanumInstance.drive(robot,0,2f,0.5f);
+        MecanumInstance.drive(robot,0,0.333333333f,0.3f);
+        robot.armServo.setPosition(1);
+        sleep(3000);
+        MecanumInstance.drive(robot,0,3f,-0.5f);
+        sleep(1000);
+        robot.armServo.setPosition((20/180));
+        sleep(3000);
+        MecanumInstance.drive(robot,90,3.2f,0.5f);
+        MecanumInstance.drive(robot,0,1.2f,0.5f);
+        MecanumInstance.drive(robot,-90,2f,0.5f);
+        MecanumInstance.drive(robot,90,3f,0.5f);
+
     }
 }

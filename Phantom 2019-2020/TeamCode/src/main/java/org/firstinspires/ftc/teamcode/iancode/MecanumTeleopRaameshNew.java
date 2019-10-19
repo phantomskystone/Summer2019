@@ -95,7 +95,7 @@ public class MecanumTeleopRaameshNew extends LinearOpMode {
             backRight = -gamepad1.left_stick_y - side;
             frontLeft = -gamepad1.right_stick_y - side;
             backLeft = -gamepad1.right_stick_y + side;
-
+/*
             if (gamepad1.dpad_left) {
 
 //                frontLeft = -1 - gamepad1.right_trigger;
@@ -112,6 +112,8 @@ public class MecanumTeleopRaameshNew extends LinearOpMode {
 
                 mr.middleDrive(robot,-90,(float)power);
             }
+            */
+ 
             if (gamepad1.y) {
                 if (released) {
                     if (inverted) {
