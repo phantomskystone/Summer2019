@@ -6,7 +6,6 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.MecanumConfig;
 import org.firstinspires.ftc.teamcode.iancode.proto.auto;
 public class MecanumRedux2 extends MecanumRedux {
-    LinearOpMode e;
     auto e2;
     public MecanumRedux2(auto thisOpmode){
         e=thisOpmode;
@@ -38,7 +37,7 @@ public class MecanumRedux2 extends MecanumRedux {
     }
     public int sideify(int angle){
         if (e2!=null){
-            if (e2.SideA.toLowerCase()=="blue"){
+            if (e2.sideA.toLowerCase()=="blue"){
                 return -angle;
             }
         }
