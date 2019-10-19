@@ -8,6 +8,7 @@ import org.firstinspires.ftc.teamcode.MecanumConfig;
 public class MecanumRedux {
     LinearOpMode e;
     boolean debug=true;
+    public MecanumRedux(){}
     public MecanumRedux(LinearOpMode thisOpmode){
         e=thisOpmode;
     }
