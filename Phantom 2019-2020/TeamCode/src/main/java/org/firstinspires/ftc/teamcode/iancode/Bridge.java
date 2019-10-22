@@ -1,17 +1,20 @@
 package org.firstinspires.ftc.teamcode.iancode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import org.firstinspires.ftc.teamcode.iancode.proto.auto;
+
+
 
 import org.firstinspires.ftc.teamcode.MecanumConfig;
+import org.firstinspires.ftc.teamcode.iancode.proto.IAuto;
+import org.firstinspires.ftc.teamcode.iancode.proto.RedAuto;
+
 @Autonomous(name="Bridge (RED)",group="autonomous")
-public class Bridge extends auto {
+public class Bridge extends RedAuto {
 
     MecanumConfig robot = new MecanumConfig();
     @Override
     public void runOpMode() throws InterruptedException {
-        this.sideA="red";
+      //  this.sideA="red";
         robot.init(hardwareMap);
         robot.reverse();
         //robot.imu.initialize(robot.parameters);
@@ -32,4 +35,5 @@ public class Bridge extends auto {
         MecanumInstance.drive(robot,MecanumInstance.sideify(90),3f,0.5f);
         
     }
+
 }
