@@ -20,7 +20,7 @@ public class Bridge extends RedAuto {
         //robot.imu.initialize(robot.parameters);
         MecanumRedux2 MecanumInstance = new MecanumRedux2(this);
         waitForStart();
-        MecanumInstance.sdrive(robot,MecanumInstance.sideify(-90),1.2f,0.5f);
+        MecanumInstance.sdrive(robot,-90,1.2f,0.5f);
         MecanumInstance.sdrive(robot,0,2f,0.5f);
         MecanumInstance.sdrive(robot,0,0.333333333f,0.3f);
         robot.armServo.setPosition(1);
