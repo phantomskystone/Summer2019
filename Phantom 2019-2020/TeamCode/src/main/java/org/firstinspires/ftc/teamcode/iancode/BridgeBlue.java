@@ -52,7 +52,7 @@ public class BridgeBlue extends BlueAuto {
         MecanumInstance.sdrive(robot,90,3.2f,0.5f);
         MecanumInstance.sdrive(robot,0,1.2f,0.5f);
         MecanumInstance.sdrive(robot,-90,2f,0.5f);
-        MecanumInstance.sdrive(robot,80,3f,0.5f);
+        MecanumInstance.sdrive(robot,83,3f,0.5f);
 
     }
 }

@@ -23,6 +23,7 @@ public class MecanumConfig {
    public BNO055IMU imu      = null;
     public Servo armServo=null;
     public Servo capServo=null;
+    public Servo stoneServo=null;
     HardwareMap hwMap = null;
     boolean newC = true;
     boolean IMU=false;
@@ -84,6 +85,8 @@ public class MecanumConfig {
         armServo.setDirection(Servo.Direction.REVERSE);
         capServo= hwMap.get(Servo.class,"capServo");
         capServo.setDirection(Servo.Direction.REVERSE);
+        stoneServo= hwMap.get(Servo.class,"stoneServo");
+        stoneServo.setDirection(Servo.Direction.REVERSE);
     }
 
     public void doIMU(){

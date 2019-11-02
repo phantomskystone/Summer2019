@@ -9,7 +9,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.teamcode.MecanumConfig;
 
-@TeleOp(name = "T10/19/19")
+@TeleOp(name = "T2/11/19")
 public class MecanumTeleopRaameshNew extends LinearOpMode {
 
     MecanumConfig robot = new MecanumConfig();
@@ -66,7 +66,7 @@ public class MecanumTeleopRaameshNew extends LinearOpMode {
             if (!gamepad1.left_bumper && !gamepad1.right_bumper) {
                 pressed = false;
             }
-            if (gamepad1.dpad_up&&!gamepad1.dpad_down){
+            if (gamepad2.dpad_up&&!gamepad2.dpad_down){
 
 
 
@@ -76,7 +76,7 @@ public class MecanumTeleopRaameshNew extends LinearOpMode {
 
             }
 
-            if (!gamepad1.dpad_up&&gamepad1.dpad_down){
+            if (!gamepad2.dpad_up&&gamepad2.dpad_down){
 
 
 
@@ -85,12 +85,63 @@ public class MecanumTeleopRaameshNew extends LinearOpMode {
                 sleep(200);
 
             }
+            if (gamepad2.dpad_left&&!gamepad2.dpad_right){
+                robot.capServo.setPosition(1);
 
+                sleep(200);
+
+            }
+
+            if (!gamepad2.dpad_right&&gamepad2.dpad_left){
+
+
+
+                robot.capServo.setPosition(0);
+
+                sleep(200);
+
+            }
+            if (gamepad2.left_bumper&&!gamepad2.right_bumper){
+                robot.stoneServo.setPosition(1);
+
+                sleep(200);
+
+            }
+
+            if (!gamepad2.right_bumper&&gamepad2.left_bumper){
+
+
+
+                robot.stoneServo.setPosition(0);
+
+                sleep(200);
+
+            }
+            side = (gamepad1.left_stick_x + gamepad1.right_stick_x) / 2;
+            if (gamepad1.y) {
+                if (released) {
+                    if (inverted) {
+                        side = -side;
+
+                        inverted = false;
+
+                    } else {
+                        side = -side;
+                        inverted = true;
+                    }
+                    released = false;
+                }
+            }
+            if (!released) {
+                if (!gamepad1.y) {
+                    released = true;
+                }
+            }
             telemetry.addData("Power:", power);
 
             telemetry.update();
 
-            side = (gamepad1.left_stick_x + gamepad1.right_stick_x) / -2;
+
             frontRight = -gamepad1.left_stick_y + side;
             backRight = -gamepad1.left_stick_y - side;
             frontLeft = -gamepad1.right_stick_y - side;
@@ -113,34 +164,39 @@ public class MecanumTeleopRaameshNew extends LinearOpMode {
                 mr.middleDrive(robot,-90,(float)power);
             }
             */
- 
-            if (gamepad1.y) {
-                if (released) {
-                    if (inverted) {
-                        inverted = false;
-                    } else {
-                        inverted = true;
-                    }
-                    released = false;
-                }
-            }
-            if (!released) {
-                if (!gamepad1.y) {
-                    released = true;
-                }
-            }
+
+
             if (!gamepad1.x) {
                 if (inverted) {
+                    robot.forward();
                     robot.frontRight.setPower(frontLeft * power);
                     robot.backRight.setPower(backLeft * power);
                     robot.frontLeft.setPower(frontRight * power);
                     robot.backLeft.setPower(backRight * power);
                 }
                 else {
+
+                    //test
+                    /*
                     robot.frontLeft.setPower(-frontLeft * power);
                     robot.backLeft.setPower(-backLeft * power);
                     robot.frontRight.setPower(-frontRight * power);
                     robot.backRight.setPower(-backRight * power);
+                    */
+                    /*
+                    robot.backLeft.setPower(frontLeft*power);
+                    robot.backRight.setPower(frontRight*power);
+                    robot.frontRight.setPower(backRight*power);
+                    robot.frontLeft.setPower(backLeft*power);
+
+
+                     */
+
+                    robot.reverse();
+                    robot.frontRight.setPower(frontLeft * power);
+                    robot.backRight.setPower(backLeft * power);
+                    robot.frontLeft.setPower(frontRight * power);
+                    robot.backLeft.setPower(backRight * power);
                 }
             } else {
                 //rotate(170,1);
