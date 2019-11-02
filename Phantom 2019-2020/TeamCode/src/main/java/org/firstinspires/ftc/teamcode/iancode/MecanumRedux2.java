@@ -11,7 +11,15 @@ import org.firstinspires.ftc.teamcode.iancode.proto.BlueAuto;
 import org.firstinspires.ftc.teamcode.iancode.proto.RedAuto;
 
 public class MecanumRedux2 extends MecanumRedux {
-
+    /**
+     *
+     *
+     *
+     * Written by Ian S. W. in Oct. 2019
+     * Some code stolen from Raamesh B. (middleDrive)
+     *
+     *
+     */
 
     public MecanumRedux2(LinearOpMode thisOpmode){
         e=thisOpmode;
@@ -28,7 +36,7 @@ public class MecanumRedux2 extends MecanumRedux {
         robot.backRight.setPower((Math.cos(Math.toRadians(angle)) * power));
         robot.backLeft.setPower((Math.sin(Math.toRadians(angle)) * power));
     }
-    public void drive(MecanumConfig robot, int angle, double power, double time){
+    public void drive(MecanumConfig robot, int angle, double time, double power){
         super.drive(robot,angle,(float)time,(float)power);
     }
     public void complexDrive(MecanumConfig robot, int angle, double distance, double power){
@@ -39,11 +47,11 @@ public class MecanumRedux2 extends MecanumRedux {
             e.telemetry.update();
         }
     }
-    public void sdrive(MecanumConfig robot, int angle, float power, float time){
-        drive(robot,sideify(angle),power,time);
+    public void sdrive(MecanumConfig robot, int angle, float time, float power){
+        drive(robot,sideify(angle),time,power);
     }
-    public void sdrive(MecanumConfig robot, int angle, double power, double time){
-        drive(robot,sideify(angle),power,time);
+    public void sdrive(MecanumConfig robot, int angle, double time, double power){
+        drive(robot,sideify(angle),time,power);
     }
     public int sideify(int angle){
         if (e instanceof RedAuto){

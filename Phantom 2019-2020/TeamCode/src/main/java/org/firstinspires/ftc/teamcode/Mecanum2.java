@@ -124,6 +124,7 @@ public class Mecanum2 extends LinearOpMode {
                 }
             } else {
                 rotate(170, 1);
+
             }
         }
     }

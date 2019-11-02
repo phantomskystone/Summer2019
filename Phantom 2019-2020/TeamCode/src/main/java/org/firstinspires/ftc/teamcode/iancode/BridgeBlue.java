@@ -38,9 +38,10 @@ public class BridgeBlue extends BlueAuto {
 
         MecanumRedux2 MecanumInstance = new MecanumRedux2(this);
         waitForStart();
+        MecanumInstance.sdrive(robot,0,0.2f,0.3f);
         MecanumInstance.sdrive(robot,-90,1.2f,0.5f);
-        MecanumInstance.sdrive(robot,0,2f,0.5f);
-        MecanumInstance.sdrive(robot,0,0.333333333f,0.3f);
+        MecanumInstance.sdrive(robot,0,1.8f,0.5f);
+        MecanumInstance.sdrive(robot,0,0.533333333f,0.3f);
         robot.armServo.setPosition(1);
         sleep(3000);
         MecanumInstance.sdrive(robot,0,3f,-0.5f);

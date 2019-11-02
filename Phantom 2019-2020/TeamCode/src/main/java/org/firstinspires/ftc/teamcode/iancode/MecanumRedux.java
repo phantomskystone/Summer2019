@@ -6,6 +6,15 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.MecanumConfig;
 
 public class MecanumRedux {
+    /**
+     *
+     *
+     *
+     * Written by Ian S. W. in Oct. 2019
+     *
+     *
+     *
+     */
     LinearOpMode e;
     boolean debug=true;
     public MecanumRedux(){}

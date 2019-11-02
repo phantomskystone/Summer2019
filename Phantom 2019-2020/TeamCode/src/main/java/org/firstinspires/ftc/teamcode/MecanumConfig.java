@@ -23,7 +23,7 @@ public class MecanumConfig {
    public BNO055IMU imu      = null;
     public Servo armServo=null;
     HardwareMap hwMap = null;
-    boolean newC = true;
+    boolean newC = false;
     boolean IMU=false;
 
     public BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
@@ -39,7 +39,12 @@ public class MecanumConfig {
     public void init(HardwareMap ahwMap) {
         hwMap = ahwMap;
 
-
+        boolean isNewChassis=true;
+        try
+        {
+            hwMap.get(Servo.class, "newC");
+        }catch (IllegalArgumentException ex){isNewChassis=false;}
+        newC=isNewChassis;
 
         frontLeft = hwMap.get(DcMotor.class, "front_left_motor");
         backLeft = hwMap.get(DcMotor.class, "back_left_motor");
@@ -71,6 +76,9 @@ public class MecanumConfig {
         backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         //backRight = hwMap.get(DcMotor.class, "back_right_motor");
+        //try {hwMap.get(Servo.class, "newC"){
+        //}
+        //catch(IllegalArgumentException exce)
         armServo= hwMap.get(Servo.class,"armServo");
         armServo.setDirection(Servo.Direction.REVERSE);
     }
@@ -120,10 +128,13 @@ public class MecanumConfig {
             backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         }
     }
+
     public void backReverse () {
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         backRight.setDirection(DcMotorSimple.Direction.FORWARD);
     }
+
+
     /** Stop stolen code **/
 
 }
