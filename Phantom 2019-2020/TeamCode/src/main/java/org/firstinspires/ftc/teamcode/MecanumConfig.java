@@ -22,8 +22,9 @@ public class MecanumConfig {
     public DcMotor backRight  = null;
    public BNO055IMU imu      = null;
     public Servo armServo=null;
+    public Servo capServo=null;
     HardwareMap hwMap = null;
-    boolean newC = false;
+    boolean newC = true;
     boolean IMU=false;
 
     public BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
@@ -81,6 +82,8 @@ public class MecanumConfig {
         //catch(IllegalArgumentException exce)
         armServo= hwMap.get(Servo.class,"armServo");
         armServo.setDirection(Servo.Direction.REVERSE);
+        capServo= hwMap.get(Servo.class,"capServo");
+        capServo.setDirection(Servo.Direction.REVERSE);
     }
 
     public void doIMU(){
