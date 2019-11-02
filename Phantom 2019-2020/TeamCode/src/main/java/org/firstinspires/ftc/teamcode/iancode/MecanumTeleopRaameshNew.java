@@ -92,7 +92,7 @@ public class MecanumTeleopRaameshNew extends LinearOpMode {
 
             }
 
-            if (!gamepad2.dpad_right&&gamepad2.dpad_left){
+            if (gamepad2.dpad_right&&!gamepad2.dpad_left){
 
 
 
@@ -108,7 +108,7 @@ public class MecanumTeleopRaameshNew extends LinearOpMode {
 
             }
 
-            if (!gamepad2.right_bumper&&gamepad2.left_bumper){
+            if (gamepad2.right_bumper&&!gamepad2.left_bumper){
 
 
 

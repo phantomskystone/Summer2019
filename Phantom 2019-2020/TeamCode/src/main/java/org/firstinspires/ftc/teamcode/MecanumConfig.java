@@ -83,8 +83,10 @@ public class MecanumConfig {
         //catch(IllegalArgumentException exce)
         armServo= hwMap.get(Servo.class,"armServo");
         armServo.setDirection(Servo.Direction.REVERSE);
+
         capServo= hwMap.get(Servo.class,"capServo");
         capServo.setDirection(Servo.Direction.REVERSE);
+
         stoneServo= hwMap.get(Servo.class,"stoneServo");
         stoneServo.setDirection(Servo.Direction.REVERSE);
     }
