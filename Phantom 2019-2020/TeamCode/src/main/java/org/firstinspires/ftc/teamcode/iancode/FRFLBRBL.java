@@ -1,10 +1,11 @@
 package org.firstinspires.ftc.teamcode.iancode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.MecanumConfig;
-
+@Disabled
 @Autonomous(name="FRFLBRBL",group="autonomous")
 public class FRFLBRBL extends LinearOpMode {
     MecanumConfig m = new MecanumConfig();

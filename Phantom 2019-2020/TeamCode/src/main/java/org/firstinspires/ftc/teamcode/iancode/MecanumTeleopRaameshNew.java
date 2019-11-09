@@ -9,7 +9,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.teamcode.MecanumConfig;
 
-@TeleOp(name = "T2/11/19")
+@TeleOp(name = "T8/11/19 (USE THIS!)")
 public class MecanumTeleopRaameshNew extends LinearOpMode {
 
     MecanumConfig robot = new MecanumConfig();
@@ -102,8 +102,8 @@ public class MecanumTeleopRaameshNew extends LinearOpMode {
 
             }
             if (gamepad2.left_bumper&&!gamepad2.right_bumper){
-                robot.stoneServo.setPosition(1);
-
+                robot.stoneServo.setPosition(0);
+                telemetry.addData("stone: ",0);
                 sleep(200);
 
             }
@@ -111,8 +111,8 @@ public class MecanumTeleopRaameshNew extends LinearOpMode {
             if (gamepad2.right_bumper&&!gamepad2.left_bumper){
 
 
-
-                robot.stoneServo.setPosition(0);
+                telemetry.addData("stone: ",180);
+                robot.stoneServo.setPosition((1));
 
                 sleep(200);
 

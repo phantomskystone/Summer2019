@@ -144,7 +144,7 @@ public class MethodsWithoutVuforia extends LinearOpMode {
         runtime1.reset();
     }
     public double getTrackingDistance(double power) {
-        return runtime1.nanoseconds() * power * (robotSpeedinInchPerSec / 1000000000);
+        return runtime1.nanoseconds() * power * (robotSpeedinInchPerSec / 1_000_000_000);
     }
     public void initializeRobotWithIMU() {
         robot.init(hardwareMap);

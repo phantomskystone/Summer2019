@@ -1,10 +1,12 @@
 package org.firstinspires.ftc.teamcode.iancode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 import org.firstinspires.ftc.teamcode.MecanumConfig;
 import org.firstinspires.ftc.teamcode.iancode.proto.RedAuto;
+@Disabled
 @Autonomous(name="speedDebug",group="debug")
 public class SpeedDebug extends RedAuto {
     MecanumConfig robot=new MecanumConfig();

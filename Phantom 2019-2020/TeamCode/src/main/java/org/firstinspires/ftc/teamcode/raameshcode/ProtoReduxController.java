@@ -106,16 +106,11 @@ public class ProtoReduxController extends LinearOpMode {
         robot.backLeft.setPower((Math.sin(Math.toRadians(angle)) * power));
         }
     public void complexDrive(MecanumConfig robot, double angle, double distance, double power){
-        methods.distanceTracking(power);
-        ElapsedTime runtime = new ElapsedTime();runtime.reset();
-        runtime.reset();
+        methods.distanceTracking(power);ElapsedTime runtime = new ElapsedTime();runtime.reset();
         angle = angle + 45; // this does the thing. Magic numbers are magic. -Ian
         //this should work, however we need a controller input to test
         //while (runtime.seconds() < time && !linearOpMode.isStopRequested()){
-        robot.frontRight.setPower((Math.sin(Math.toRadians(angle)) * power)); //We need a weight fix, if only we had a center of mass overlay.
-        robot.frontLeft.setPower((Math.cos(Math.toRadians(angle)) * power));
-        robot.backRight.setPower((Math.cos(Math.toRadians(angle)) * power));
-        robot.backLeft.setPower((Math.sin(Math.toRadians(angle)) * power));
+        robot.frontRight.setPower((Math.sin(Math.toRadians(angle)) * power));robot.frontLeft.setPower((Math.cos(Math.toRadians(angle)) * power));robot.backRight.setPower((Math.cos(Math.toRadians(angle)) * power));robot.backLeft.setPower((Math.sin(Math.toRadians(angle)) * power));
         while (methods.trackingDistance < distance);
         robot.stop();
     }
@@ -128,7 +123,7 @@ public class ProtoReduxController extends LinearOpMode {
                 if (Δx < 0) {
                     stopBreakingMyMindDriveAngle = -90;
                 } else {
-                    throw new IllegalArgumentException("no position change @ ''stopBreakingMyMindDrive'' Method");
+                    throw new IllegalArgumentException("no position change @ \"stopBreakingMyMindDrive\" Method");
                 }
             }
         }
