@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.iancode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
+import org.firstinspires.ftc.robotcore.internal.system.AppUtil;
 import org.firstinspires.ftc.teamcode.MecanumConfig;
 import org.firstinspires.ftc.teamcode.iancode.proto.BlueAuto;
 @Disabled
@@ -12,6 +13,7 @@ public class BridgeBlueNoWall extends BlueAuto {
     MecanumConfig robot = new MecanumConfig();
     @Override
     public void runOpMode() throws InterruptedException {
+        super.d();
         //this.sideA="blue";
         /* --OLD
         robot.init(hardwareMap);

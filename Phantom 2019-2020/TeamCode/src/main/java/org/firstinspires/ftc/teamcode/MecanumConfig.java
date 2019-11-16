@@ -1,11 +1,15 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
+import org.firstinspires.ftc.robotcontroller.external.samples.SensorREV2mDistance;
+import org.firstinspires.ftc.robotcontroller.external.samples.SensorREVColorDistance;
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
@@ -24,6 +28,9 @@ public class MecanumConfig {
     public Servo armServo=null;
     public Servo capServo=null;
     public Servo stoneServo=null;
+    public ColorSensor cs=null;
+    public DistanceSensor ds=null;
+    public DistanceSensor twom=null;
     HardwareMap hwMap = null;
     boolean newC = true;
     boolean IMU=false;
@@ -89,6 +96,13 @@ public class MecanumConfig {
 
         stoneServo= hwMap.get(Servo.class,"stoneServo");
         stoneServo.setDirection(Servo.Direction.REVERSE);
+        cs = hwMap.get(ColorSensor.class, "scd");
+
+        // get a reference to the distance sensor that shares the same name.
+        ds = hwMap.get(DistanceSensor.class, "scd");
+        twom = hwMap.get(DistanceSensor.class, "DistanceSensor");
+
+
     }
 
     public void doIMU(){

@@ -15,6 +15,7 @@ public class Bridge extends RedAuto {
     @Override
     public void runOpMode() throws InterruptedException {
       //  this.sideA="red";
+        super.d();
 
         robot.init(hardwareMap);
         robot.reverse();

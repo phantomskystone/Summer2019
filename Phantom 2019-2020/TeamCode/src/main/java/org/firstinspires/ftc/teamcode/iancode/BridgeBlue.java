@@ -11,6 +11,7 @@ public class BridgeBlue extends BlueAuto {
     MecanumConfig robot = new MecanumConfig();
     @Override
     public void runOpMode() throws InterruptedException {
+        super.d();
         //this.sideA="blue";
         /* --OLD
         robot.init(hardwareMap);

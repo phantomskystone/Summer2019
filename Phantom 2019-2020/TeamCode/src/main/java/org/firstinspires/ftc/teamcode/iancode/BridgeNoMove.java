@@ -12,6 +12,7 @@ public class BridgeNoMove extends RedAuto {
     MecanumConfig robot = new MecanumConfig();
     @Override
     public void runOpMode() throws InterruptedException {
+        super.d();
       //  this.sideA="red";
 
         robot.init(hardwareMap);

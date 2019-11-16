@@ -26,9 +26,21 @@ public class MecanumRedux2 extends MecanumRedux {
     }
 
 
+
     protected void middleDrive(MecanumConfig robot, int angle, float power){
         ElapsedTime runtime = new ElapsedTime();runtime.reset();
         angle=angle+45; // this does the thing. Magic numbers are magic. -Ian
+        //this should work, however we need a controller input to test
+        //while (runtime.seconds() < time && !linearOpMode.isStopRequested()){
+        robot.frontRight.setPower((Math.sin(Math.toRadians(angle)) * power)); //We need a weight fix, if only we had a center of mass overlay.
+        robot.frontLeft.setPower((Math.cos(Math.toRadians(angle)) * power));
+        robot.backRight.setPower((Math.cos(Math.toRadians(angle)) * power));
+        robot.backLeft.setPower((Math.sin(Math.toRadians(angle)) * power));
+    }
+    protected void msDrive(MecanumConfig robot, int angle, float power){
+        ElapsedTime runtime = new ElapsedTime();runtime.reset();
+        angle=angle+45; // this does the thing. Magic numbers are magic. -Ian
+        angle=sideify(angle);
         //this should work, however we need a controller input to test
         //while (runtime.seconds() < time && !linearOpMode.isStopRequested()){
         robot.frontRight.setPower((Math.sin(Math.toRadians(angle)) * power)); //We need a weight fix, if only we had a center of mass overlay.
