@@ -20,7 +20,9 @@ public class IMUTestNov extends RedAuto{
         robot.reverse();
         robot.doNewC();
 
+
         IMURedux MecanumInstance = new IMURedux(this,robot);
+        MecanumInstance.calibrate();
         ElapsedTime t = new ElapsedTime();
         t.reset();
         while (t.seconds()<3){MecanumInstance.mIMUddleDrive(0,0.3f);}

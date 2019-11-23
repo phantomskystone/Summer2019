@@ -13,9 +13,11 @@ import org.firstinspires.ftc.teamcode.MecanumConfig;
 public class IMURedux extends MecanumRedux2 {
 
     MecanumConfig robot;
-    public IMURedux(LinearOpMode thisOpMode, MecanumConfig robot){
+    float gain;
+    public IMURedux(LinearOpMode thisOpMode, MecanumConfig robot,float IMUGain){
         e=thisOpMode;
         this.robot=robot;
+        gain = IMUGain;
     }
 
     public void resetAngle()
@@ -84,6 +86,13 @@ public class IMURedux extends MecanumRedux2 {
 
 
     }   //mecanumTimeDrive
+    public void calibrate(){
+         while (!e.isStopRequested() && !robot.imu.isSystemCalibrated())
+        {
+            e.sleep(50);
+            e.idle();
+        }
+    }
     public void mIMUddleDrive(int angle, float power){
         if (robot.IMUf) {
             e.telemetry.addData("Angle X", getAngle());
@@ -102,7 +111,7 @@ public class IMURedux extends MecanumRedux2 {
         // You will have to experiment with your robot to get small smooth direction changes
         // to stay on a straight line.
         double correction;
-        double gain = 0.025;
+        //double gain = 0.025;
 
         //gain = mult * angle;
 
