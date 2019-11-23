@@ -21,7 +21,7 @@ public class CSTest extends RedAuto {
         while (!isStopRequested()){
             telemetry.addData("Alpha",robot.cs.alpha());
             telemetry.addData("Hue",robot.cs.argb());
-            telemetry.addData("Distance",robot.ds.getDistance(DistanceUnit.INCH));
+            telemetry.addData("Distance",robot.twom.getDistance(DistanceUnit.INCH));
             telemetry.update();
         }
     }

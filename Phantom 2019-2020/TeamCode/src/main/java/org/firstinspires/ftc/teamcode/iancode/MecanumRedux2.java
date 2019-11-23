@@ -27,37 +27,32 @@ public class MecanumRedux2 extends MecanumRedux {
 
 
 
-    protected void middleDrive(MecanumConfig robot, int angle, float power){
+    public void middleDrive(MecanumConfig robot, int angle, float power){
         ElapsedTime runtime = new ElapsedTime();runtime.reset();
         angle=angle+45; // this does the thing. Magic numbers are magic. -Ian
         //this should work, however we need a controller input to test
         //while (runtime.seconds() < time && !linearOpMode.isStopRequested()){
-        robot.frontRight.setPower((Math.sin(Math.toRadians(angle)) * power)); //We need a weight fix, if only we had a center of mass overlay.
+        robot.frontRight.setPower((Math.sin(Math.toRadians(angle)) * power));
         robot.frontLeft.setPower((Math.cos(Math.toRadians(angle)) * power));
         robot.backRight.setPower((Math.cos(Math.toRadians(angle)) * power));
         robot.backLeft.setPower((Math.sin(Math.toRadians(angle)) * power));
+        e.telemetry.addData("MIDDLE","DRIVING");
+        e.telemetry.update();
     }
     protected void msDrive(MecanumConfig robot, int angle, float power){
-        ElapsedTime runtime = new ElapsedTime();runtime.reset();
-        angle=angle+45; // this does the thing. Magic numbers are magic. -Ian
-        angle=sideify(angle);
+
+
         //this should work, however we need a controller input to test
         //while (runtime.seconds() < time && !linearOpMode.isStopRequested()){
-        robot.frontRight.setPower((Math.sin(Math.toRadians(angle)) * power)); //We need a weight fix, if only we had a center of mass overlay.
-        robot.frontLeft.setPower((Math.cos(Math.toRadians(angle)) * power));
-        robot.backRight.setPower((Math.cos(Math.toRadians(angle)) * power));
-        robot.backLeft.setPower((Math.sin(Math.toRadians(angle)) * power));
+        e.telemetry.addData("MS","FORWARDING");
+        e.telemetry.update();
+        middleDrive(robot,sideify(angle),power);
     }
     public void drive(MecanumConfig robot, int angle, double time, double power){
         super.drive(robot,angle,(float)time,(float)power);
     }
     public void complexDrive(MecanumConfig robot, int angle, double distance, double power){
-        //do not ever do this
-        while (!e.isStopRequested()){
-            robot.stop();
-            e.telemetry.addData("ERROR", "Unknown Opcode");
-            e.telemetry.update();
-        }
+        //do not use this!
     }
     public void sdrive(MecanumConfig robot, int angle, float time, float power){
         drive(robot,sideify(angle),time,power);
