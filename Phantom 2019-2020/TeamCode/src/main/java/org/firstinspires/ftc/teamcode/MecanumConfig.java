@@ -33,7 +33,7 @@ public class MecanumConfig {
     public DistanceSensor twom=null;
     HardwareMap hwMap = null;
     boolean newC = true;
-    boolean IMU=false;
+    public boolean IMUf=false;
 
     public BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
 
@@ -112,6 +112,7 @@ public class MecanumConfig {
         parameters.loggingEnabled      = false;
         imu = hwMap.get(BNO055IMU.class, "imu");
         imu.initialize(parameters);
+        IMUf=true;
     }
     /** Start stolen code **/
     public void stop() {

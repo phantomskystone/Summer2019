@@ -24,6 +24,7 @@ public class MecanumRedux2 extends MecanumRedux {
     public MecanumRedux2(LinearOpMode thisOpmode){
         e=thisOpmode;
     }
+    protected MecanumRedux2(){}
 
 
 

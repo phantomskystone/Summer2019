@@ -35,7 +35,7 @@ public class Skystone extends RedAuto {
         //we are now 3" away
         int iv = robot.cs.alpha();
         int lv = iv-3;
-        int hv = iv+3;
+       // int hv = iv+3;
         MecanumInstance.msDrive(robot,90,0.5f);
         while (robot.cs.alpha()>lv&&!isStopRequested()){ //<16 is dark >18 is light
             //dark spot
