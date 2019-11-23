@@ -84,7 +84,7 @@ public class IMURedux extends MecanumRedux2 {
 
 
     }   //mecanumTimeDrive
-    public void mIMUdleDrive(int angle, float power){
+    public void mIMUddleDrive(int angle, float power){
         if (robot.IMUf) {
             e.telemetry.addData("Angle X", getAngle());
             e.telemetry.addData("Correction", checkDirection());

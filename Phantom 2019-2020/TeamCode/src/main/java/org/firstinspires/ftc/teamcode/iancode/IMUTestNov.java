@@ -13,19 +13,21 @@ public class IMUTestNov extends RedAuto{
     @Override
     public void runOpMode() throws InterruptedException {
         super.d();
+
         robot.init(hardwareMap);
         robot.doIMU();
         robot.imu.initialize(robot.parameters);
         robot.reverse();
+        robot.doNewC();
 
         IMURedux MecanumInstance = new IMURedux(this,robot);
         ElapsedTime t = new ElapsedTime();
         t.reset();
-        while (t.seconds()<3){MecanumInstance.mIMUdleDrive(0,0.3f);}
+        while (t.seconds()<3){MecanumInstance.mIMUddleDrive(0,0.3f);}
 
         robot.stop();
         t.reset();
-        while (t.seconds()<3){MecanumInstance.mIMUdleDrive(90,0.3f);}
+        while (t.seconds()<3){MecanumInstance.mIMUddleDrive(90,0.3f);}
         robot.stop();
     }
 }

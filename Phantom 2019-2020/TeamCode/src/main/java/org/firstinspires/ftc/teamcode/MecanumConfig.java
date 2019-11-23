@@ -32,9 +32,9 @@ public class MecanumConfig {
     public DistanceSensor ds=null;
     public DistanceSensor twom=null;
     HardwareMap hwMap = null;
-    boolean newC = true;
+    boolean newC;
     public boolean IMUf=false;
-
+    protected boolean isNewChassis=true;
     public BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
 
     public Orientation             lastAngles = new Orientation();
@@ -48,7 +48,7 @@ public class MecanumConfig {
     public void init(HardwareMap ahwMap) {
         hwMap = ahwMap;
 
-        boolean isNewChassis=true;
+
         try
         {
             hwMap.get(Servo.class, "newC");
@@ -156,8 +156,26 @@ public class MecanumConfig {
         backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
         backRight.setDirection(DcMotorSimple.Direction.FORWARD);
     }
-
-
     /** Stop stolen code **/
+    public void doNewC(){
+        try
+        {
+            hwMap.get(Servo.class, "newC");
+        }catch (IllegalArgumentException ex){isNewChassis=false;}
+        newC=isNewChassis;
+        if (newC){
+            backRight.setDirection(DcMotorSimple.Direction.FORWARD);
+            // backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+            //  backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+            // frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+            backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
+            //frontRight.setDirection(DcMotorSimple.Direction.FORWARD);
+        }else{
+            backRight.setDirection(DcMotorSimple.Direction.REVERSE);
+            backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
+        }
+    }
+
+
 
 }

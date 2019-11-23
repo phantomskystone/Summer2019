@@ -39,7 +39,7 @@ public class Skystone extends RedAuto {
         MecanumInstance.msDrive(robot,90,0.5f);
         while (robot.cs.alpha()>lv&&!isStopRequested()){ //<16 is dark >18 is light
             //dark spot
-            telemetry.addData("Status","dark!");
+            telemetry.addData("Status","dark! cv: "+robot.cs.alpha()+" lv: "+lv);
             telemetry.update();
         }
         sleep(400);
