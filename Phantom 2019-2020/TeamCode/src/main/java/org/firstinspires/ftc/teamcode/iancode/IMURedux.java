@@ -64,45 +64,57 @@ public class IMURedux extends MecanumRedux2 {
     }
     public void imuDrive(int angle, double timeS, double maxAllowedPower) {
         if (robot.IMUf) {
-            angle = angle+45;
+            angle = -angle-45;
             ElapsedTime runtime = new ElapsedTime();
             runtime.reset();
+            e.telemetry.addData("running","true");
+            e.telemetry.addData("Status",runtime.seconds()+" "+timeS +" "+e.isStopRequested());
+            e.telemetry.update();
+
             while (!e.isStopRequested() && runtime.seconds() < timeS) {
                 e.telemetry.addData("Angle X", getAngle());
                 e.telemetry.addData("Correction", checkDirection());
                 e.telemetry.addData("lastangles", robot.lastAngles.firstAngle);
                 e.telemetry.update();
-                robot.frontRight.setPower((Math.sin(Math.toRadians(angle)) * maxAllowedPower) - checkDirection());
+                robot.frontRight.setPower((-Math.sin(Math.toRadians(angle)) * maxAllowedPower) - checkDirection());
                 robot.frontLeft.setPower((Math.cos(Math.toRadians(angle)) * maxAllowedPower) + checkDirection());
                 robot.backRight.setPower((Math.cos(Math.toRadians(angle)) * maxAllowedPower) - checkDirection());
-                robot.backLeft.setPower((Math.sin(Math.toRadians(angle)) * maxAllowedPower) + checkDirection());
+                robot.backLeft.setPower((-Math.sin(Math.toRadians(angle)) * maxAllowedPower) + checkDirection());
                 e.sleep(1);
             }
             robot.frontRight.setPower(0);
             robot.backRight.setPower(0);
             robot.frontLeft.setPower(0);
             robot.backLeft.setPower(0);
+        }else{
+            e.telemetry.addData("IMUf","bad");
         }
 
 
     }   //mecanumTimeDrive
     public void calibrate(){
-         while (!e.isStopRequested() && !robot.imu.isSystemCalibrated())
+        robot.imu.initialize(robot.parameters);
+        e.telemetry.addData("Calbration","Doing it!");
+        e.telemetry.update();
+         while (!e.isStopRequested() && !robot.imu.isGyroCalibrated())
         {
             e.sleep(50);
             e.idle();
         }
+        e.telemetry.addData("Calbration","Done!");
+        e.telemetry.update();
     }
     public void mIMUddleDrive(int angle, float power){
         if (robot.IMUf) {
+            angle = -angle-45;
             e.telemetry.addData("Angle X", getAngle());
             e.telemetry.addData("Correction", checkDirection());
             e.telemetry.addData("lastangles", robot.lastAngles.firstAngle);
             e.telemetry.update();
-            robot.frontRight.setPower((Math.sin(Math.toRadians(angle)) * power) - checkDirection());
+            robot.frontRight.setPower((-Math.sin(Math.toRadians(angle)) * power) - checkDirection());
             robot.frontLeft.setPower((Math.cos(Math.toRadians(angle)) * power) + checkDirection());
             robot.backRight.setPower((Math.cos(Math.toRadians(angle)) * power) - checkDirection());
-            robot.backLeft.setPower((Math.sin(Math.toRadians(angle)) * power) + checkDirection());
+            robot.backLeft.setPower((-Math.sin(Math.toRadians(angle)) * power) + checkDirection());
         }
     }
     private double checkDirection()
@@ -118,5 +130,67 @@ public class IMURedux extends MecanumRedux2 {
         correction = -getAngle() * gain;        // reverse sign of angle for correction.
 
         return correction;
+    }
+    private void rotate(int degrees, double rPower)
+    {
+        double  leftPower=0;
+        double rightPower=0;
+        boolean quit=false;
+        // restart imu movement tracking.
+        resetAngle();
+
+        // getAngle() returns + when rotating counter clockwise (left) and - when rotating
+        // clockwise (right).
+
+        if (degrees < 0)
+        {   // turn right.
+            leftPower = rPower;
+            rightPower = -rPower;
+        }
+        else if (degrees > 0)
+        {   // turn left.
+            leftPower = -rPower;
+            rightPower = rPower;
+        }
+        else if (degrees==0){leftPower=0;rightPower=0;quit=true;}
+        //return;
+        if (!quit) {
+
+            //return;
+
+            // set power to rotate.
+            robot.backLeft.setPower(leftPower);
+            robot.frontLeft.setPower(leftPower);
+            robot.backRight.setPower(rightPower);
+            robot.frontRight.setPower(rightPower);
+            // rotate until turn is completed.
+            if (degrees < 0) {
+                // On right turn we have to get off zero first.
+                while (e.opModeIsActive() && getAngle() == 0) {
+                    e.telemetry.addData("heading", robot.globalAngle);
+                    e.telemetry.update();
+                }
+
+                while (e.opModeIsActive() && getAngle() > degrees) {
+                    e.telemetry.addData("heading", robot.globalAngle);
+                    e.telemetry.update();
+                }
+            } else    // left turn.
+                while (e.opModeIsActive() && getAngle() < degrees) {
+                    e.telemetry.addData("heading", robot.globalAngle);
+                    e.telemetry.update();
+                }
+
+            // turn the motors off.
+            robot.backLeft.setPower(0);
+            robot.frontLeft.setPower(0);
+            robot.backRight.setPower(0);
+            robot.frontRight.setPower(0);
+            // wait for rotation to stop.
+            e.sleep(500);
+        }else{robot.stop();}
+            // reset angle tracking on new heading.
+        resetAngle();
+
     }
 }

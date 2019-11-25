@@ -28,6 +28,7 @@ public class MecanumConfig {
     public Servo armServo=null;
     public Servo capServo=null;
     public Servo stoneServo=null;
+    public Servo skyServo=null;
     public ColorSensor cs=null;
     public DistanceSensor ds=null;
     public DistanceSensor twom=null;
@@ -67,7 +68,7 @@ public class MecanumConfig {
 
         frontLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
-        if (newC){
+        if (!newC){
             backRight.setDirection(DcMotorSimple.Direction.FORWARD);
            // backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
           //  backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
@@ -96,6 +97,10 @@ public class MecanumConfig {
 
         stoneServo= hwMap.get(Servo.class,"stoneServo");
         stoneServo.setDirection(Servo.Direction.REVERSE);
+
+        skyServo= hwMap.get(Servo.class,"skyServo");
+        skyServo.setDirection(Servo.Direction.REVERSE);
+
         cs = hwMap.get(ColorSensor.class, "scd");
 
         // get a reference to the distance sensor that shares the same name.
@@ -163,7 +168,7 @@ public class MecanumConfig {
             hwMap.get(Servo.class, "newC");
         }catch (IllegalArgumentException ex){isNewChassis=false;}
         newC=isNewChassis;
-        if (newC){
+        if (!newC){
             backRight.setDirection(DcMotorSimple.Direction.FORWARD);
             // backLeft.setDirection(DcMotorSimple.Direction.REVERSE);
             //  backLeft.setDirection(DcMotorSimple.Direction.FORWARD);

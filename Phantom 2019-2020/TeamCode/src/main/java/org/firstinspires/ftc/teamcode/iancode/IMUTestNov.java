@@ -16,20 +16,29 @@ public class IMUTestNov extends RedAuto{
 
         robot.init(hardwareMap);
         robot.doIMU();
-        robot.imu.initialize(robot.parameters);
+        IMURedux MecanumInstance = new IMURedux(this,robot,0.025f);
+        MecanumInstance.calibrate();
         robot.reverse();
         robot.doNewC();
 
 
-        IMURedux MecanumInstance = new IMURedux(this,robot,0.025f);
-        MecanumInstance.calibrate();
+
+        waitForStart();
         ElapsedTime t = new ElapsedTime();
         t.reset();
-        while (t.seconds()<3){MecanumInstance.mIMUddleDrive(0,0.3f);}
+        while (!isStopRequested()) {
+            MecanumInstance.imuDrive(90,3,0.6);
+            sleep(300);
+            MecanumInstance.imuDrive(-90,3,0.6);
+        }
+        //MecanumInstance.imuDrive(0,3,0.6);
 
-        robot.stop();
-        t.reset();
-        while (t.seconds()<3){MecanumInstance.mIMUddleDrive(90,0.3f);}
+
+        //while (t.seconds()<3){MecanumInstance.mIMUddleDrive(0,0.3f);}
+
+        //robot.stop();
+        //t.reset();
+        //while (t.seconds()<3){MecanumInstance.mIMUddleDrive(90,0.3f);}
         robot.stop();
     }
 }
