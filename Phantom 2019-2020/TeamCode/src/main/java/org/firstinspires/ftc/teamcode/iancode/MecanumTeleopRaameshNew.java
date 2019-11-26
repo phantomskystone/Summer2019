@@ -80,7 +80,7 @@ public class MecanumTeleopRaameshNew extends LinearOpMode {
 
 
 
-                robot.armServo.setPosition(0);
+                robot.armServo.setPosition(0.7);
 
                 sleep(200);
 

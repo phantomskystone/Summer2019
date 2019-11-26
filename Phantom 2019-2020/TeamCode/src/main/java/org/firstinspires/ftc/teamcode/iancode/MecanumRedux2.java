@@ -79,7 +79,7 @@ public class MecanumRedux2 extends MecanumRedux {
             }
         }
 
-        return 0;
+        return angle;
 
     }
 }

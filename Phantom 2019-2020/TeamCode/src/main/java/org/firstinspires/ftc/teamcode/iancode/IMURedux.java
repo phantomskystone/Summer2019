@@ -64,7 +64,9 @@ public class IMURedux extends MecanumRedux2 {
     }
     public void imuDrive(int angle, double timeS, double maxAllowedPower) {
         if (robot.IMUf) {
+            angle = sideify(angle);
             angle = -angle-45;
+
             ElapsedTime runtime = new ElapsedTime();
             runtime.reset();
             e.telemetry.addData("running","true");
@@ -72,9 +74,9 @@ public class IMURedux extends MecanumRedux2 {
             e.telemetry.update();
 
             while (!e.isStopRequested() && runtime.seconds() < timeS) {
-                e.telemetry.addData("Angle X", getAngle());
+               // e.telemetry.addData("Angle X", getAngle());
                 e.telemetry.addData("Correction", checkDirection());
-                e.telemetry.addData("lastangles", robot.lastAngles.firstAngle);
+                //e.telemetry.addData("lastangles", robot.lastAngles.firstAngle);
                 e.telemetry.update();
                 robot.frontRight.setPower((-Math.sin(Math.toRadians(angle)) * maxAllowedPower) - checkDirection());
                 robot.frontLeft.setPower((Math.cos(Math.toRadians(angle)) * maxAllowedPower) + checkDirection());
@@ -94,22 +96,22 @@ public class IMURedux extends MecanumRedux2 {
     }   //mecanumTimeDrive
     public void calibrate(){
         robot.imu.initialize(robot.parameters);
-        e.telemetry.addData("Calbration","Doing it!");
+        e.telemetry.addData("Calibration","Doing it!");
         e.telemetry.update();
          while (!e.isStopRequested() && !robot.imu.isGyroCalibrated())
         {
             e.sleep(50);
             e.idle();
         }
-        e.telemetry.addData("Calbration","Done!");
+        e.telemetry.addData("Calibration","Done!");
         e.telemetry.update();
     }
     public void mIMUddleDrive(int angle, float power){
         if (robot.IMUf) {
             angle = -angle-45;
-            e.telemetry.addData("Angle X", getAngle());
+           // e.telemetry.addData("Angle X", getAngle());
             e.telemetry.addData("Correction", checkDirection());
-            e.telemetry.addData("lastangles", robot.lastAngles.firstAngle);
+           // e.telemetry.addData("lastangles", robot.lastAngles.firstAngle);
             e.telemetry.update();
             robot.frontRight.setPower((-Math.sin(Math.toRadians(angle)) * power) - checkDirection());
             robot.frontLeft.setPower((Math.cos(Math.toRadians(angle)) * power) + checkDirection());

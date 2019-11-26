@@ -70,23 +70,66 @@ public class Skystone2 extends RedAuto {
 
         //sleep(400);
         robot.stop();
-        sleep(2000);
+        sleep(500);
+        MecanumInstance.sdrive(robot,0,0.3f,0.25f);
         robot.skyServo.setPosition(0.9);
-        sleep(1000);
+        sleep(500);
         MecanumInstance.sdrive(robot,0,1.5f,-0.25f);
 
-        MecanumInstance.sdrive(robot,0,0.15f,1f);
-        MecanumInstance.sdrive(robot,0,0.3f,-0.25f);
-        sleep(1000);
+       // MecanumInstance.sdrive(robot,0,0.15f,1f);
+        MecanumInstance.sdrive(robot,0,0.8f,-0.25f);
+        sleep(500);
         MecanumInstance.imuDrive(-90,3f,0.85f);
         sleep(100);
         robot.skyServo.setPosition(0);
-        sleep(1000);
+        sleep(500);
         MecanumInstance.sdrive(robot,0,0.3f,-0.25f);
-        MecanumInstance.imuDrive(90,3.5f,0.85f);
+        MecanumInstance.imuDrive(90,3.8f,0.85f);
 
        // MecanumInstance.sdrive(robot,-90,5f,0.5f);
         robot.stop();
+        MecanumInstance.middleDrive(robot,0,0.3f);
+        while ((robot.twom.getDistance(DistanceUnit.INCH)>4&&!isStopRequested())){telemetry.addData("Status","waiting! "+robot.twom.getDistance(DistanceUnit.INCH));
+            telemetry.update();sleep(25);}
+        robot.stop();
+        sleep(500);
+        t.reset();
+        boolean broken=false;
+        while (((robot.cs.argb()>0)) && !isStopRequested()){ //<16 is dark >18 is light
+            //dark spot
+            //while lighter than
+
+            if (t.seconds()>=3.25){
+                broken=true;
+                break;
+
+            }
+            MecanumInstance.mIMUddleDrive(90,0.5f);
+            telemetry.addData("Status","dark! cv: "+robot.cs.argb());
+            telemetry.addData("Time",t.seconds());
+            telemetry.update();
+
+        }
+        if (!broken) {
+            robot.stop();
+            sleep(500);
+            MecanumInstance.sdrive(robot, 0, 0.3f, 0.25f);
+            robot.skyServo.setPosition(0.9);
+            sleep(500);
+            MecanumInstance.sdrive(robot, 0, 1.5f, -0.25f);
+
+            // MecanumInstance.sdrive(robot,0,0.15f,1f);
+            MecanumInstance.sdrive(robot, 0, 0.8f, -0.25f);
+            sleep(500);
+            MecanumInstance.imuDrive(-90, 4f, 0.85f);
+            sleep(100);
+            robot.skyServo.setPosition(0);
+            MecanumInstance.imuDrive(90, 0.5f, 1);
+        }else{
+            MecanumInstance.sdrive(robot, 0, 2.5f, -0.25f);
+            MecanumInstance.imuDrive(-90, 3f, 0.85f);
+        }
+       // sleep(500);
         /*
         long nano = System.nanoTime();
         while (robot.cs.alpha()<hv&&!isStopRequested()){telemetry.addData("Status","waiting 2! cv: "+robot.cs.alpha()+" lv: "+lv+" hv: "+hv);
